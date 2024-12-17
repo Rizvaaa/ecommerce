@@ -1,0 +1,15 @@
+{
+    "products": [
+      { "id": 1, "name": "Product 1", "price": 20000, "image": "https://www.reliancedigital.in/medias/Apple-iPhone-16-Pro-494423056-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wyOTAyM3xpbWFnZS9qcGVnfGltYWdlcy9oMmEvaDE5LzEwMTk1ODAyODQ5MzEwLmpwZ3w1NWM0YmRmMWZhY2EyMDNmZGE5OTJhMWY5NzA4ZDdmMDM4ZGZhYTE5ZTEzYjNlYTNjMTRhNGZmZWQ2MDdmNmRh" },
+      { "id": 2, "name": "Product 2", "price": 25000, "image": "https://i.gadgets360cdn.com/products/large/vivo-s18e-649x800-1702640287.jpg?downsize=*:180" },
+      { "id": 3, "name": "Product 3", "price": 30000, "image": "https://i.gadgets360cdn.com/products/small/Moto-G35-DB-240x180-1725003217.jpg?downsize=120:*" },
+      { "id": 4, "name": "Product 4", "price": 35000, "image": "https://i.gadgets360cdn.com/products/small/Honor-300-DB-240x180-1733751581.jpg?downsize=120:*" },
+      { "id": 5, "name": "Product 5", "price": 40000, "image": "https://i.gadgets360cdn.com/products/large/mate-70-pro-plus-725x800-1732625652.jpg?downsize=*:180" },
+      { "id": 6, "name": "Product 6", "price": 45000, "image": "https://i.gadgets360cdn.com/products/small/oneplus-13-240x180-1730372398.jpg?downsize=120:*" },
+      { "id": 7, "name": "Product 7", "price": 50000, "image": "https://i.gadgets360cdn.com/products/small/poco-c75-240x180-1729929943.jpg?downsize=120:*" },
+      { "id": 8, "name": "Product 8", "price": 55000, "image": "https://i.gadgets360cdn.com/products/large/samsung-galaxy-z-fold-6-special-edition-725x800-1729582931.jpg?downsize=*:180" },
+      { "id": 9, "name": "Product 9", "price": 60000, "image": "https://i.gadgets360cdn.com/products/small/galaxy-a16-5g-samsung-db-240x180-1728298269.jpg?downsize=120:*" },
+      { "id": 10, "name": "Product 10", "price":65000, "image": "https://i.gadgets360cdn.com/products/small/galaxy-m55s-samsung-db-240x180-1727338890.jpg?downsize=120:*" }
+    ]
+  }
+  
