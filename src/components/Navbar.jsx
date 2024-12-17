@@ -18,9 +18,10 @@ function Navbar() {
       <div>
         <input type="text" placeholder='search'className='border-b-2 border-gray-300' />
       </div>
-      <div className='space-x-4'>
-        <button>Admin</button>
-        <button className='text-red-700'>Logout</button>
+      <div className='flex space-x-4'>
+        <li className='list-none'><Link to="/admin">Admin</Link></li>
+        <li className='list-none'><Link to="/login">Login</Link></li>
+        <li className='list-none'><Link to="/signup">signup</Link></li>
       </div>
     </div>
   </div>

@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios"
 import { getAllProducts } from "../../api/productApi";
 
 function Home() {
@@ -22,7 +20,7 @@ function Home() {
 
     
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {products.length>0 && products.map((product) => (
+      {products.length>0 &&products.map((product) => (
         <div
           key={product.id}
           className="border border-gray-200 rounded-lg shadow-lg p-4 hover:shadow-2xl transition duration-300"
@@ -32,10 +30,17 @@ function Home() {
              src={product.image}
              alt={product.name}
              />
+              
            </div>
           <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
           <p className="text-gray-700 mb-2">{product.description}</p>
           <p className="text-gray-900 font-bold">${product.price}</p>
+          <button
+                // onClick={() => handleAddToCart(product)}
+                className="bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 w-25"
+              >
+                Add to Cart
+              </button>
         </div>
       ))}
     </div>
