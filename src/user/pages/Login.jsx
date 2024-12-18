@@ -26,7 +26,7 @@ function Login  ()  {
           </div>
           <button
             type="submit"
-            className="w-full py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600"
+            className="w-full py-2 bg-orange-500 text-white font-semibold rounded-full hover:bg-orange-600"
           >
             Login
           </button>

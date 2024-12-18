@@ -11,15 +11,15 @@ function Navbar() {
       </div>
       <div className='flex space-x-4'>
         
-        <li className='list-none'><Link to="/">Home</Link></li>
-        <li className='list-none'><Link to="/cart">Cart</Link></li>
-        <li className='list-none'><Link to="/order">Checkout</Link></li>
+        <li className='list-none'><Link to="/"><b>Home</b></Link></li>
+        <li className='list-none'><Link to="/cart"><b>Cart</b></Link></li>
+        <li className='list-none'><Link to="/order"><b>Order</b></Link></li>
       </div>
       <div>
         <input type="text" placeholder='search'className='border-b-2 border-gray-300' />
       </div>
       <div className='flex space-x-4'>
-        <li className='list-none'><Link to="/admin">Admin</Link></li>
+        <li className='list-none'><Link to="/admin"><b>Admin</b></Link></li>
         <li className='list-none'><Link to="/login">Login</Link></li>
         <li className='list-none'><Link to="/signup">signup</Link></li>
       </div>

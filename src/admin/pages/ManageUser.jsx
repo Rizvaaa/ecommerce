@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ManageProduct() {
+function ManageUser() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function ManageProduct() {
   )
 }
 
-export default ManageProduct
+export default ManageUser

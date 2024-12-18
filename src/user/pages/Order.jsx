@@ -1,11 +1,11 @@
 import React from 'react'
 
-function ManageProduct() {
+function Order() {
   return (
     <div>
-      
+      order page
     </div>
   )
 }
 
-export default ManageProduct
+export default Order
