@@ -1,29 +1,37 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
 const Dashboard = () => {
+  const navigate=useNavigate()
   return (
     <div className="min-h-screen flex bg-gray-100">
       {/* Sidebar */}
       <aside className="w-64 bg-gray-800 text-white">
         <div className="p-6 text-center font-bold text-xl border-b border-gray-600">
-          Admin Dashboard
+          Admin 
         </div>
-        <nav className="mt-4">
-          <ul>
-            <li className="px-6 py-3 hover:bg-gray-600">
-              <a href="#products">Manage Products</a>
-            </li>
-            <li className="px-6 py-3 hover:bg-gray-600">
-              <a href="#orders">View Orders</a>
-            </li>
-            <li className="px-6 py-3 hover:bg-gray-600">
-              <a href="#users">User Management</a>
-            </li>
-            <li className="px-6 py-3 hover:bg-gray-600">
-              <a href="#settings">Settings</a>
-            </li>
-          </ul>
-        </nav>
+        <div className="mt-4">
+           
+            <button className="px-6 py-3 hover:bg-gray-600"
+              onClick={()=>{navigate("/admin/manageproduct")}}> Manage Products
+            </button>
+            <button className="px-6 py-3 hover:bg-gray-600"
+              onClick={()=>{navigate("/admin/manageorder")}} 
+            >
+              View Orders
+            </button>
+            <button className="px-6 py-3 hover:bg-gray-600"
+              onClick={()=>{navigate("/admin/manageuser")}} 
+            >
+            User Management
+            </button>
+            <button className="px-6 py-3 hover:bg-gray-600"
+              onClick={()=>{navigate("/admin/reports")}} 
+            >
+              Reports
+            </button>
+        
+        </div>
       </aside>
 
       {/* Main Content */}
@@ -53,7 +61,7 @@ const Dashboard = () => {
         </div>
 
         <div id="orders" className="bg-white p-6 shadow rounded mb-6">
-          <h2 className="text-xl font-bold mb-4">View Orders</h2>
+          <h2 className="text-xl font-bold mb-4">view Orders</h2>
           <p>Track and manage customer orders.</p>
         </div>
 
@@ -63,7 +71,7 @@ const Dashboard = () => {
         </div>
 
         <div id="settings" className="bg-white p-6 shadow rounded">
-          <h2 className="text-xl font-bold mb-4">Settings</h2>
+          <h2 className="text-xl font-bold mb-4">Reports</h2>
           <p>Update admin preferences and configurations.</p>
         </div>
       </main>
