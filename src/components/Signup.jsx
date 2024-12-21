@@ -24,6 +24,8 @@ import { addUser } from "../api/userApi";
            if (data.length > 0) setMessage("User already exist")                
             else {
           addUser(form)
+          alert("Signup successfully")
+          navigate("/")
   
     }
 } catch (error) {

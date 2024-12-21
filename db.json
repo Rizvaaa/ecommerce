@@ -26,6 +26,20 @@
       "email": "simra@gmail.com",
       "password": "zimu",
       "confirmPassword": ""
+    },
+    {
+      "id": "9871",
+      "name": "new",
+      "email": "new@gmail.com",
+      "password": "newa",
+      "confirmPassword": ""
+    },
+    {
+      "id": "ccc3",
+      "name": "rrgrf",
+      "email": "cscs@gmail.com",
+      "password": "s",
+      "confirmPassword": ""
     }
   ],
   "products": [
