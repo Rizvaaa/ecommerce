@@ -5,7 +5,6 @@ import UserRouter from "./user/UserRouter";
 import AdminRouter from "./admin/AdminRouter";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-// import { CartContext } from "./context/CartContext";
 
 function App() {
   return (
@@ -20,6 +19,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          
         </div>
       {/* </CartContext> */}
     </Router>

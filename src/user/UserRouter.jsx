@@ -4,8 +4,8 @@ import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Login from "../components/Login";
+import Signup from "../components/Signup";
 import Order from "./pages/Order";
 
 function UserRouter() {
@@ -15,8 +15,8 @@ function UserRouter() {
       <Route path="/product/:id" element={<ProductDetail />} />
       <Route path="/cart" element={<Cart/>} />
       <Route path="/order" element={<Order />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/signup" element={<Signup/>} />
       <Route path="/checkout" element={<Checkout />} />
     </Routes>
   );
