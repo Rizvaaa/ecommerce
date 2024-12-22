@@ -6,8 +6,9 @@ function Navbar() {
   // <div className='w-screen h-screen bg-gray-50'>
   <div className=" w-screen h-[80px] bg shadow-lg flex items-center px-4">
     <div className="flex justify-between space-x-4 w-full">
-      <div>
-        <img src='assets/ecomPict.png' alt='logo' className='w-10 h-10 margin-40px'/>
+      <div className='flex'>
+        <img src='assets/ecomm.jpg' alt='logo' className='w-25 h-10 margin-40px'/>
+        <b className='text-orange-700'>Shop</b><b className='text-blue-600'>Cart</b>
       </div>
       <div className='flex space-x-4'>
         

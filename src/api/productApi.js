@@ -8,3 +8,7 @@ export const getAllProducts= async()=>{
     console.log(res)
     return res
 }
+export const getProductById=async(productid)=>{
+    return await axios.get(`${PRODUCT_URL}/${productid}`)
+
+}
