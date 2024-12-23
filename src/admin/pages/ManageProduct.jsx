@@ -1,6 +1,6 @@
 import React from "react";
 
-function ManageProduct  ()  {
+function ManageProducts  ()  {
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-2xl font-bold mb-6 text-center">Manage Products</h1>
@@ -61,4 +61,4 @@ function ManageProduct  ()  {
   );
 };
 
-export default ManageProduct;
+export default ManageProducts;

@@ -1,23 +1,34 @@
 import axios from "axios";
 const USER_URL = "http://localhost:5000/users"
-
+const ORDER_URL="http://localhost:5000/orders"
 
 export const addUser= async(data)=>{
-    await axios.post(USER_URL,data);
+    const res= await axios.post(USER_URL,data)
+    return res.data
+}
+export const userCheck = async (email,password) => {
+    const res = await axios.get(`${USER_URL}?email=${email}&password=${password}`);
+    console.log(res.data);
+    return res.data;
 }
 
-// export const isUserExist=async()=>{
-//     await axios.get(USER_URL, { params: {email:form.email}})
-// }
+export const emailCheck = async (email) => {
+    const res = await axios.get(`${USER_URL}?email=${email}`);
+    return res.data.length>0;
+}
 
-export const loginUser = async (email, password) => {
-    try {
-      const response = await axios.get(USER_URL, {
-        params: { email, password },
-      });
-      return response.data;
-    } catch (err) {
-      console.error("Error fetching user:", err);
-      throw new Error("Could not connect to the server.");
-    }
-  };
+export const getUserbyId = async (userId) => {
+    const res = await axios.get(`${USER_URL}/${userId}`)
+    return res.data;
+}
+
+
+export const OrdersByUserId = async (userId) => {
+    const res = await axios.get(`${ORDER_URL}?userId=${userId}`);
+    return res.data;
+}
+
+export const addOrder = async (orderData) => {
+    const res = await axios.post(ORDER_URL,orderData);
+    return res.data;
+}

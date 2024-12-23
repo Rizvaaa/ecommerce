@@ -1,14 +1,17 @@
-import axios from "axios"
 
+import axios from "axios";
+const USER_URL = "http://localhost:5000/users"
 const PRODUCT_URL = "http://localhost:5000/products"
 
 
-export const getAllProducts= async()=>{
-    const res = await axios.get(PRODUCT_URL);
-    console.log(res)
-    return res
+export const getAllProduct = () =>{
+    return axios.get(PRODUCT_URL);
 }
-export const getProductById=async(productid)=>{
-    return await axios.get(`${PRODUCT_URL}/${productid}`)
 
+export const getProductbyId = (ProductId) =>{
+    return axios.get(`${PRODUCT_URL}/${ProductId}`);
+}
+
+export const updateCart = async (userId,cartData) => {
+    return axios.put(`${USER_URL}/${userId}`,cartData);
 }

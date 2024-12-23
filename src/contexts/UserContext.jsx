@@ -32,38 +32,76 @@
 //         </UserContext.Provider>
 //     );
 // };
-import React, { createContext, useContext, useState } from "react";
-
+import React, { createContext, use, useContext, useState } from "react";
+import { addUser,emailCheck,userCheck } from "../api/userApi";
+import { useNavigate } from "react-router";
 // Create UserContext
- const UserContext = createContext();
+ export const UserContext = createContext();
 
 // UserProvider
 export const UserProvider = ({ children }) => {
-  const [email, setEmail] = useState(() => localStorage.getItem("email") || "");
-  const [name, setName] = useState(() => localStorage.getItem("name") || "");
+  const [user, setUser] = useState()
+  const navigate=useNavigate()
 
-  // Handle Login
-  const handleLogin = (userEmail, userName) => {
-    localStorage.setItem("email", userEmail);
-    localStorage.setItem("name", userName);
-    setEmail(userEmail);
-    setName(userName);
+  const handleSignup = async(userData) => {
+    try {
+      const isEmail = await emailCheck(userData.email)
+      if(!isEmail){ 
+        const newUser = await addUser(userData);
+        setUser(newUser);
+        localStorage.setItem("user",newUser.email);
+        localStorage.setItem("userId",newUser.id);
+        navigate('/');
+        return "";
+      }
+      else return "User already exist!"
+    } catch (error) {
+      console.error("Signup error:", error);
+      return "An error occurred during signup.";
+    }
+      
   };
 
-  // Handle Logout
+  const handleLogin = async(email,password) => {
+    try {
+      const [userValidation] = await userCheck(email,password);
+      if(userValidation){
+          if (userValidation.role === "admin"){
+            setUser(userValidation)
+            localStorage.setItem("admin",userValidation.email)
+            navigate('/admin');
+            return "";
+          }
+          else{
+            setUser(userValidation)
+            localStorage.setItem("user",userValidation.email);
+            localStorage.setItem("userId",userValidation.id);
+            localStorage.setItem("userName",userValidation.name);
+            navigate('/');
+            return "";
+          }
+      }else{
+        return "Invalid email or password"
+      }
+    } catch (error) {
+      console.error('login error:',error);
+      return "An error occurred during login.";
+    }
+  };
+
   const handleLogout = () => {
-    localStorage.removeItem("email");
-    localStorage.removeItem("name");
-    setEmail("");
-    setName("");
+    setUser([]);
+    localStorage.clear();
+    // navigate("/login");
   };
+  
 
   return (
     <UserContext.Provider
       value={{
-        email,
-        name,
+        user,
         handleLogin,
+        handleSignup,
         handleLogout,
       }}
     >

@@ -1,0 +1,45 @@
+{
+    "orders": [
+      {
+        "id": "c6eb",
+        "username": "Abhay",
+        "email": "abhay@gmail.com",
+        "password": "123456",
+        "cart": [
+          {
+            "id": "1",
+            "name": "iPhone 14",
+            "price": "₹99,999",
+            "image": "https://www.imagineonline.store/cdn/shop/files/iPhone_14_Pro_Deep_Purple_PDP_Image_Position-1a__WWEN.jpg?v=1692348972",
+            "description": "6GB RAM + 128GB Storage | 6.1-inch Super Retina XDR Display | IP68 Water & Dust Resistance | A15 Bionic Chip | 12MP Dual Rear Cameras | 20-Hour Video Playback | Fast Charging Support",
+            "quantity": 2
+          },
+          {
+            "id": "2",
+            "name": "Samsung Galaxy S23",
+            "price": "₹79,999",
+            "image": "https://m.media-amazon.com/images/I/51hqXIAVXAL.jpg",
+            "description": "8GB RAM + 128GB Storage | 6.1-inch Dynamic AMOLED 2X Display | IP68 Water & Dust Resistance | Snapdragon 8 Gen 2 | 50MP Triple Rear Cameras | 3900mAh Battery | 25W Fast Charging",
+            "quantity":1
+          }
+        ]
+      },
+      {
+        "id": "b44e",
+        "name": "Risva",
+        "email": "ris@gmai.com",
+        "password": "risu",
+        "confirmPassword": "",
+        "cart":[
+          {
+            "id": "2",
+            "name": "Samsung Galaxy S23",
+            "price": "₹79,999",
+            "image": "https://m.media-amazon.com/images/I/51hqXIAVXAL.jpg",
+            "description": "8GB RAM + 128GB Storage | 6.1-inch Dynamic AMOLED 2X Display | IP68 Water & Dust Resistance | Snapdragon 8 Gen 2 | 50MP Triple Rear Cameras | 3900mAh Battery | 25W Fast Charging",
+            "quantity":1
+          }
+        ]
+      }
+    ]
+}

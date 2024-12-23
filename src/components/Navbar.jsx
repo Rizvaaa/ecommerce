@@ -1,7 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { useState } from 'react'
+import { NavLink} from 'react-router'
+import { useUser } from '../contexts/UserContext'
+import { useCart } from '../contexts/CartContext'
 
 function Navbar() {
+  const { handleLogout } = useUser(); // Get username and logout from context
+  const { cart } = useCart();
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for hamburger menu
+  const userName = localStorage.getItem("userName")
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   return (
   // <div className='w-screen h-screen bg-gray-50'>
   <div className=" w-screen h-[80px] bg shadow-lg flex items-center px-4">
@@ -11,19 +19,103 @@ function Navbar() {
         <b className='text-orange-700'>Shop</b><b className='text-blue-600'>Cart</b>
       </div>
       <div className='flex space-x-4'>
-        
-        <li className='list-none'><Link to="/"><b>Home</b></Link></li>
-        <li className='list-none'><Link to="/cart"><b>Cart</b></Link></li>
-        <li className='list-none'><Link to="/order"><b>Order</b></Link></li>
+            <ul className='flex space-x-4 '>
+                <NavLink to="/" className="hover:text-green-900"><li>Home</li></NavLink>
+                <NavLink to="/Cart" className="hover:text-green-900"><li>Cart {cart.length >0 && (<span className='text-sm px-1 rounded-full bg-orange-400'>{cart.length}</span>)}</li></NavLink>
+                <NavLink to="/Order" className="hover:text-green-900"><li>Order</li></NavLink>
+            </ul>
       </div>
       <div>
         <input type="text" placeholder='search'className='border-b-2 border-gray-300' />
       </div>
-      <div>
-        {/* <li className='list-none'><Link to="/admin"><b>Admin</b></Link></li> */}
-        <li className='list-none'><Link to="/login"><b>Login</b></Link></li>
-        {/* <li className='list-none'><Link to="/signup">signup</Link></li> */}
+      <div className="flex items-center space-x-2">
+        {userName ? (
+          <>
+                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="profile" className='w-8 h-8 hidden md:block' />
+                
+              
+                <span className="font-normal text-sm hidden md:block">{userName}</span>
+                <button
+                  className='bg-orange-500 px-3 py-1 rounded-full hover:bg-orange-600 text-white hidden md:block'
+                  onClick={handleLogout} // Trigger the logout function
+                >
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <div className='hidden md:block'>
+                <NavLink to="/login">
+                  <button className='bg-orange-500 text-white px-3 py-1 rounded-full hover:bg-orange-600'>
+                    Login
+                  </button>
+                </NavLink>
+                {/* <NavLink to="/signup">
+                  <button className='bg-orange-500 text-white px-3 py-1 rounded-full hover:bg-orange-600'>
+                    Sign Up
+                  </button>
+                </NavLink> */}
+              </div>
+            )}
+        </div>
+
+        <div className="block md:hidden">
+        <button onClick={toggleMenu}>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/255px-Hamburger_icon.svg.png"
+            alt="menu-icon"
+            className="w-7 h-7"
+          />
+        </button>
       </div>
+
+      {isMenuOpen && (
+        <div className="absolute top-[70px] left-0 w-full bg-white shadow-md md:hidden z-50">
+          <ul className="flex flex-col items-start space-y-2 p-4 font-semibold text-lg">
+              <NavLink to="/" className="hover:text-orange-500"><li>Home</li></NavLink>
+              <NavLink to="/Cart" className="hover:text-orange-500"><li>Cart {cart.length >0 && (<span className='text-sm px-1 rounded-full bg-orange-400'>{cart.length}</span>)}</li></NavLink>
+              <NavLink to="/Order" className="hover:text-orange-500"><li>Order</li></NavLink>
+              <li className="w-full">
+              <div className="flex items-center space-x-2">
+                <input
+                  type="text"
+                  placeholder="Search here..."
+                  className="flex-grow rounded px-2 py-1 border border-slate-300"
+                />
+                <button className="bg-blue-500 rounded-lg px-2 py-1 text-white hover:bg-blue-400 font-normal text-base">
+                  Search
+                </button>
+              </div>
+            </li>
+            <div className="flex items-center space-x-2 space-y-2">
+                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="profile" className='w-8 h-8' />
+                {userName ? (
+              <>
+                <span className="font-normal text-sm">{userName}</span>
+                <button
+                  className='bg-orange-500 px-3 py-1 rounded-full hover:bg-orange-600 text-white text-base font-normal'
+                  onClick={handleLogout} // Trigger the logout function
+                >
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <>
+                <NavLink to="/login">
+                  <button className='bg-orange-500 text-white px-3 py-1 rounded-full hover:bg-orange-600 text-base font-normal'>
+                    Login
+                  </button>
+                </NavLink>
+                {/* <NavLink to="/signup">
+                  <button className='bg-orange-500 text-white px-3 py-1 rounded-full hover:bg-orange-600'>
+                    Sign Up
+                  </button>
+                </NavLink> */}
+              </>
+            )}
+        </div>
+        </ul>
+        </div>
+      )}
     </div>
   </div>
 

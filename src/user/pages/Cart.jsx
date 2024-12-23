@@ -1,77 +1,108 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import React from "react";
+import { useCart } from "../../contexts/CartContext";
+import { useUser } from "../../contexts/UserContext";
+import { useNavigate,Link } from "react-router";
 
-const Cart = () => {
-  // Example cart state (replace this with global state or props as needed)
-  const [cartItems, setCartItems] = useState([]);
+function Cart() {
+  const { cart, removeFromCart, clearCart, updateQuantity,totalPrice } = useCart();
+  const navigate = useNavigate();
+  const userId = localStorage.getItem("userId")
 
-  const navigate=useNavigate()
+  const handleCheckout = () => {
+    if(cart.length === 0){
+        alert("Your cart is empty.")
+    }
+    navigate("/checkout");
+  };
 
-  useEffect(() => {
-    // Fetch cart items (if stored globally or in local storage)
-    // For now, setting some example items
-    setCartItems([
-      {
-        id: 1,
-        name: "Product 1",
-        description: "Description for Product 1",
-        price: 10,
-        quantity: 2,
-      },
-      {
-        id: 2,
-        name: "Product 2",
-        description: "Description for Product 2",
-        price: 20,
-        quantity: 1,
-      },
-    ]);
-  }, []);
-
-  // Calculate total price
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  if (!userId) return <p>Please log in to view your cart.</p>;
 
   return (
-    <div className="container mx-auto p-8">
-      <h1 className="text-2xl font-bold mb-6 text-center">Your Cart</h1>
-      {cartItems.length > 0 ? (
-        <div className="space-y-4">
-          {cartItems.map((item) => (
+    <div className="max-w-5xl mx-auto py-4 px-2">
+      {/* <h2 className="text-lg font-bold mb-4">Shopping Cart</h2> */}
+      {cart.length > 0 ? (
+        <>
+          {cart.map((product) => (
             <div
-              key={item.id}
-              className="flex items-center justify-between border p-4 rounded shadow"
+              key={product.id}
+              className="flex items-center justify-between border-b py-2"
             >
-              <div>
-                <h2 className="text-lg font-semibold">{item.name}</h2>
-                <p className="text-gray-600">{item.description}</p>
-                <p className="text-gray-900 font-bold">${item.price} x {item.quantity}</p>
+              <div className="flex items-center">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-20 h-20 object-contain mr-4"
+                />
+                <div>
+                  <h3 className="font-semibold">{product.name}</h3>
+                  <p>₹{product.price}</p>
+                </div>
               </div>
+
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => updateQuantity(product.id, -1)}
+                  className="text-lg text-gray-900 px-2 py-1 rounded hover:text-gray-950"
+                  disabled={product.quantity <= 1}
+                >
+                  -
+                </button>
+                <span className="text-lg font-semibold">{product.qty}</span>
+                <button
+                  onClick={() => updateQuantity(product.id, 1)}
+                  className=" text-gray-900 px-2 py-1 rounded hover:text-gray-950"
+                >
+                  +
+                </button>
+              </div>
+
               <button
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300"
-                onClick={() => {
-                  // Remove item from cart
-                  setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
-                }}
+                onClick={() => removeFromCart(product.id)}
+                className="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600"
               >
                 Remove
               </button>
-              <button
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300"
-                onClick={()=>navigate("/checkout")}
-              >
-                  Buy now
-              </button>
             </div>
           ))}
-          <div className="text-right font-bold text-lg">
-            Total: ${totalPrice.toFixed(2)}
+          <div className="mt-2 flex justify-between items-center">
+            <h3 className="text-lg font-bold">Total: ₹{totalPrice}</h3>
+            <div className="space-x-4">
+              <button
+                onClick={clearCart}
+                className="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600"
+              >
+                Clear Cart
+              </button>
+              <button
+                onClick={handleCheckout}
+                className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
+              >
+                Checkout
+              </button>
+            </div>
           </div>
-        </div>
+        </>
       ) : (
-        <p className="text-center text-gray-500">Your cart is empty.</p>
+        // 
+        <div className="flex flex-col items-center p-4">
+      <img
+        // src="https://cdn-icons-png.flaticon.com/512/13543/13543366.png"
+        alt="Empty Cart"
+        className="w-52 h-52 object-contain"
+      />
+      <h2 className="text-2xl font-semibold text-gray-700">Your Cart is Empty!</h2>
+      <p className="text-gray-500 mt-2 text-center max-w-md">
+        It seems like you haven’t added anything to your cart yet. Don’t miss out on amazing deals—start shopping now!
+      </p>
+      <Link
+        to="/"
+        className="mt-6 px-6 py-2 bg-orange-500 text-white text-sm font-medium rounded-lg shadow-md hover:bg-orange-600 transition-all"
+      >
+        Shop Now
+      </Link>
+    </div>
       )}
     </div>
   );
-};
-
+}
 export default Cart;
