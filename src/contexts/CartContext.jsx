@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState,useCallback,useEffect } from
 import { getUserbyId } from "../api/userApi";
 import { updateCart } from "../api/productApi";
 import { UserContext } from "./UserContext";
+import { useNavigate } from "react-router";
 
 
 const CartContext = createContext();
@@ -12,6 +13,7 @@ export const CartProvider = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const { user } = useContext(UserContext);
   const userId = localStorage.getItem('userId') 
+  const navigate=useNavigate()
 
   const fetchUser = async (userId) => {
     try {
@@ -33,6 +35,7 @@ export const CartProvider = ({ children }) => {
 
     const totalCartPrice =  useCallback(() =>{
     const total = cart.reduce((total, item) => total + item.price * item.qty, 0);
+    console.log(cart)
     setTotalPrice(total);
     },[cart]);
 
@@ -59,6 +62,7 @@ export const CartProvider = ({ children }) => {
         cartData = [...cart, {...product, qty}];
     }
     updateServerCart(cartData);
+    navigate("/cart")
     }
 
     

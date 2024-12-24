@@ -36,7 +36,7 @@ function Home() {
           >
             <div
               className="w-full h-40 flex justify-center cursor-pointer"
-              onClick={() => navigate(`/product/${product.id}`)}
+              // onClick={() => navigate(`/product/${product.id}`)}
             >
               <img src={product.image} alt={product.name} />
             </div>

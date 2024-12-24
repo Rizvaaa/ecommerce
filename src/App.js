@@ -1,6 +1,7 @@
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {   Routes, Route} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import UserRouter from "./user/routes/UserRouter";
 import AdminRouter from "./admin/routes/AdminRouter";
 import Login from "./auth/pages/Login";
@@ -15,17 +16,18 @@ import Sidebar from "./admin/pages/Sidebar"
 import Notfound from "./components/Notfound";
 
 
+
 // import { AuthProvider } from "./contexts/AuthContext";
 // import { CartProvider } from "./contexts/CartContext";
 
 
 function App() {
-  // const location = useLocation();
-  // const isAdmin = AdminRouter.some(route => location.pathname.startsWith(route.path));
+  const location = useLocation();
+  const isAdmin = AdminRouter.some(route => location.pathname.startsWith(route.path));
   return (
    <div className="flex flex-col min-h-screen">
-     {/* {isAdmin ? <Sidebar/> : <Navbar/>} */}
-     <Navbar></Navbar>
+    
+      {isAdmin?<Sidebar/>:<Navbar/>}
       <div className="flex-grow container mx-auto p-4">
       <Routes>
             <Route path="/" element = { <Home/> } />
