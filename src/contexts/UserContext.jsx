@@ -1,37 +1,3 @@
-// import React, { createContext, useState } from 'react'; 
-// import { addUser } from '../api/userApi';
-
-// export const UserContext = createContext();
-
-// export const UserProvider = ({ children }) => {
-//     const [users, setUsers] = useState([]);
-
-//     // Function to handle user signup
-//      const signupUser = async (userData) => {
-//         try {
-//             console.log(userData);
-//            const response= addUser(userData)
-            
-        
-//             if (response.ok) {
-//                 const newUser = await response.json();
-//                 setUsers([...users, newUser]);
-//                 return { success: true };
-//             } else {
-//                 return { success: false, message: 'Failed to sign up. Try again.' };
-//             }
-//         } catch (error) {
-//             console.error('Error during signup:', error);
-//             return { success: false, message: 'Error connecting to the server.' };
-//         }
-//     };
-
-//     return (
-//         <UserContext.Provider value={{ users, signupUser }}>
-//             {children}
-//         </UserContext.Provider>
-//     );
-// };
 import React, { createContext, use, useContext, useState } from "react";
 import { addUser,emailCheck,userCheck } from "../api/userApi";
 import { useNavigate } from "react-router";
