@@ -23,9 +23,9 @@ function App() {
   // const location = useLocation();
   // const isAdmin = AdminRouter.some(route => location.pathname.startsWith(route.path));
   return (
-  <Router>
    <div className="flex flex-col min-h-screen">
      {/* {isAdmin ? <Sidebar/> : <Navbar/>} */}
+     <Navbar></Navbar>
       <div className="flex-grow container mx-auto p-4">
       <Routes>
             <Route path="/" element = { <Home/> } />
@@ -47,7 +47,6 @@ function App() {
         </div>
        <Footer/>
     </div> 
-  </Router>
   )
 }
 

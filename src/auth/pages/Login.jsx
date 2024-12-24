@@ -4,7 +4,7 @@
   
   const Login = () => {
     const navigate=useNavigate()
-    const {handleLogin}=useUser
+    const {handleLogin} = useUser();
     const [form,setForm] = useState({email:"",password:""})
     const [message,setMessage] = useState("");
 
@@ -17,6 +17,7 @@
       e.preventDefault();
       try {
           const response = await handleLogin(form.email,form.password);
+          console.log(response);
           setMessage(response)
         } catch (error) {
           console.error("Login Error:", error);

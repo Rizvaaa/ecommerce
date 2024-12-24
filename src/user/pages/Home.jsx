@@ -31,7 +31,7 @@ function Home() {
         {products.map((product) => (
           
           <div
-            key={product.id}
+          onClick={() => navigate(`/productdetail/${product.id}`)} key={product.id}
             className="border border-gray-200 rounded-lg shadow-lg p-4 hover:shadow-2xl transition duration-300"
           >
             <div

@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState,useCallback,useEffect } from "react";
 import { getUserbyId } from "../api/userApi";
 import { updateCart } from "../api/productApi";
-import { UserContext,useUser } from "./UserContext";
+import { UserContext } from "./UserContext";
 
 
 const CartContext = createContext();
@@ -29,7 +29,7 @@ export const CartProvider = ({ children }) => {
     }else{
         setCart([])
     }
-  }, [user])
+  },[user])
 
     const totalCartPrice =  useCallback(() =>{
     const total = cart.reduce((total, item) => total + item.price * item.qty, 0);
@@ -83,7 +83,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, updateQuantity, removeFromCart,clearCart,updateQuantity,totalPrice}}>
+      value={{ cart, addToCart, removeFromCart,clearCart,updateQuantity,totalPrice}}>
       {children}
     </CartContext.Provider>
   );

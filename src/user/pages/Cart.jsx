@@ -1,6 +1,6 @@
 import React from "react";
 import { useCart } from "../../contexts/CartContext";
-import { useUser } from "../../contexts/UserContext";
+// import { useUser } from "../../contexts/UserContext";
 import { useNavigate,Link } from "react-router";
 
 function Cart() {

@@ -70,7 +70,7 @@ const Orders = () => {
                           src={item.image}
                           alt={item.name}
                           className="w-16 h-16 object-contain"
-                          onClick={() => navigate(`/product-details/${item.id}`)}
+                          onClick={() => navigate(`/productdetail/${item.id}`)}
                         />
                       </td>
                       <td className="border border-gray-200 px-4 py-2">{item.qty} x {item.price}</td>

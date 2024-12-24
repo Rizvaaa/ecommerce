@@ -1,4 +1,4 @@
-import React, { createContext, use, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { addUser,emailCheck,userCheck } from "../api/userApi";
 import { useNavigate } from "react-router";
 // Create UserContext
@@ -17,10 +17,13 @@ export const UserProvider = ({ children }) => {
         setUser(newUser);
         localStorage.setItem("user",newUser.email);
         localStorage.setItem("userId",newUser.id);
+        localStorage.setItem("userName",newUser.name);
         navigate('/');
         return "";
       }
-      else return "User already exist!"
+      else{ 
+        return "User already exist!"
+      }
     } catch (error) {
       console.error("Signup error:", error);
       return "An error occurred during signup.";
