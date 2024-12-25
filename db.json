@@ -66,7 +66,7 @@
         {
           "id": "2",
           "name": "Samsung Galaxy S23",
-          "price": "₹79,999",
+          "price": 79999,
           "image": "https://m.media-amazon.com/images/I/51hqXIAVXAL.jpg",
           "description": "8GB RAM + 128GB Storage | 6.1-inch Dynamic AMOLED 2X Display | IP68 Water & Dust Resistance | Snapdragon 8 Gen 2 | 50MP Triple Rear Cameras | 3900mAh Battery | 25W Fast Charging",
           "qty": 4
@@ -74,7 +74,7 @@
         {
           "id": "1",
           "name": "iPhone 14",
-          "price": "₹99,999",
+          "price": 99999,
           "image": "https://www.imagineonline.store/cdn/shop/files/iPhone_14_Pro_Deep_Purple_PDP_Image_Position-1a__WWEN.jpg?v=1692348972",
           "description": "6GB RAM + 128GB Storage | 6.1-inch Super Retina XDR Display | IP68 Water & Dust Resistance | A15 Bionic Chip | 12MP Dual Rear Cameras | 20-Hour Video Playback | Fast Charging Support",
           "qty": 1
@@ -92,16 +92,7 @@
       "name": "sooraj",
       "email": "sooraj@gmail.com",
       "password": "sooraj",
-      "cart": [
-        {
-          "id": "2",
-          "name": "Samsung Galaxy S23",
-          "price": 79999,
-          "image": "https://m.media-amazon.com/images/I/51hqXIAVXAL.jpg",
-          "description": "8GB RAM + 128GB Storage | 6.1-inch Dynamic AMOLED 2X Display | IP68 Water & Dust Resistance | Snapdragon 8 Gen 2 | 50MP Triple Rear Cameras | 3900mAh Battery | 25W Fast Charging",
-          "qty": 2
-        }
-      ]
+      "cart": []
     }
   ],
   "products": [
@@ -204,11 +195,11 @@
       "description": "6GB RAM + 128GB Storage | 6.8-inch OLED Display | IP68 Water & Dust Resistance | Snapdragon 765G | 48MP Triple Rear Cameras | 4300mAh Battery | 18W Fast Charging"
     },
     {
-      "id": "15",
-      "name": "Apple iPhone SE 2022",
-      "price": 42999,
-      "image": "https://dakauf.eu/wp-content/uploads/2022/10/iPhoneSE_2022_midn.jpg",
-      "description": "4GB RAM + 64GB Storage | 4.7-inch Retina HD Display | IP67 Water & Dust Resistance | A15 Bionic Chip | 12MP Rear Camera | 2227mAh Battery | 18W Fast Charging"
+      "id": "03f6",
+      "name": "Motorola g45 5G (Viva Magenta, 128 GB)  (8 GB RAM)",
+      "price": "12999",
+      "description": "8 GB RAM | 128 GB ROM | Expandable Upto 1 TB\n16.51 cm (6.5 inch) HD+ Display\n50MP + 2MP ",
+      "image": "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/9/3/6/-original-imah3xk8u8dgteq3.jpeg?q=70&crop=false"
     }
   ],
   "orders": [
@@ -363,6 +354,30 @@
         "country": "wdwd"
       },
       "date": "2024-12-24T05:53:48.875Z"
+    },
+    {
+      "id": "f0fb",
+      "userId": "e474",
+      "items": [
+        {
+          "id": "0a43",
+          "name": "kuppi",
+          "price": "50",
+          "description": "local sanam",
+          "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/bottle/3/i/s/2000-leakproof-unbreabale-travel-gym-big-water-bottle-set-of-original-imah4ma4yghqhytq.jpeg?q=70",
+          "qty": 1
+        }
+      ],
+      "total": 50,
+      "paymentMethod": "Credit Card",
+      "address": {
+        "street": "eaf",
+        "city": "efaF",
+        "state": "faw",
+        "zip": "fe",
+        "country": "India"
+      },
+      "date": "2024-12-25T14:47:26.167Z"
     }
   ]
 }
