@@ -1,6 +1,6 @@
 import axios from "axios";
-const USER_URL = "http://localhost:5000/users"
-const ORDER_URL="http://localhost:5000/orders"
+const USER_URL = "https://shopcart-n75k.onrender.com/users"
+const ORDER_URL="https://shopcart-n75k.onrender.com/orders"
 
 export const addUser= async(data)=>{
     const res= await axios.post(USER_URL,data)
