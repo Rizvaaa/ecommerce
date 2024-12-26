@@ -17,7 +17,7 @@ function Sidebar() {
       <div className="flex justify-between space-x-4 w-full">
         <div className="flex items-center space-x-3">
           <img
-            src="assets/ecomm.jpg"
+            src="https://cdn.dribbble.com/userupload/17039932/file/original-983633d1f6de58f5d871f174ff34f057.jpg?format=webp&resize=320x240&vertical=center"
             alt="logo"
             className="w-14 h-14 rounded-full shadow-md"
           />
@@ -47,11 +47,6 @@ function Sidebar() {
             to="/admin/manageusers"
             className="bg-white text-blue-500 px-5 py-2 rounded-full shadow-lg font-medium hover:bg-blue-100 flex justify-center items-center">
             Manage Users
-          </Link>
-          <Link 
-            to="/admin/reports"
-            className="bg-white text-blue-500 px-5 py-2 rounded-full shadow-lg font-medium hover:bg-blue-100 flex justify-center items-center">
-            Reports
           </Link>
         </div>
 

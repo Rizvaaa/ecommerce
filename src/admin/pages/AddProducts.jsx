@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
 import { addProduct } from '../../api/adminApi';
-
+import { useNavigate } from 'react-router';
 export const AddProducts = () => {
     const [product, setProduct] = useState({name: '', price: '', description: '', image: ''});
   const [error, setError] = useState('');
+  const navigate=useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,6 +15,7 @@ export const AddProducts = () => {
     } else {
       setError('Failed to add product');
     }
+    navigate("/admin/manageproducts")
   };
 
   const handleChange = (e) => {

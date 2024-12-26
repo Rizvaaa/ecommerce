@@ -6,6 +6,7 @@
       "email": "abhay@gmail.com",
       "password": "123456",
       "role": "user",
+      "blocked": true,
       "cart": []
     },
     {
@@ -14,6 +15,7 @@
       "email": "rubi@gmail.com",
       "password": "rubi",
       "role": "user",
+      "blocked": false,
       "cart": [
         {
           "id": "1",
@@ -37,6 +39,7 @@
       "name": "simra",
       "email": "simra@gmail.com",
       "password": "simra",
+      "blocked": false,
       "cart": [
         {
           "id": "3",
@@ -53,6 +56,14 @@
           "image": "https://oasis.opstatics.com/content/dam/oasis/page/2023/na/oneplus-11/specs/green-img.png",
           "description": "12GB RAM + 256GB Storage | 6.7-inch Fluid AMOLED Display | IP68 Water & Dust Resistance | Snapdragon 8 Gen 2 | 50MP Triple Rear Cameras | 5000mAh Battery | 100W Fast Charging",
           "qty": 1
+        },
+        {
+          "id": "2",
+          "name": "Samsung Galaxy S23",
+          "price": 79999,
+          "image": "https://m.media-amazon.com/images/I/51hqXIAVXAL.jpg",
+          "description": "8GB RAM + 128GB Storage | 6.1-inch Dynamic AMOLED 2X Display | IP68 Water & Dust Resistance | Snapdragon 8 Gen 2 | 50MP Triple Rear Cameras | 3900mAh Battery | 25W Fast Charging",
+          "qty": 1
         }
       ]
     },
@@ -62,6 +73,7 @@
       "email": "minha@gmail.com",
       "password": "minha",
       "role": "user",
+      "blocked": false,
       "cart": [
         {
           "id": "2",
@@ -83,16 +95,43 @@
     },
     {
       "id": "d6a4",
-      "name": "farseen",
+      "name": "farseena",
       "email": "farseen@gmail.com",
-      "password": "1234"
+      "password": "1234",
+      "blocked": false
     },
     {
       "id": "e474",
       "name": "sooraj",
       "email": "sooraj@gmail.com",
       "password": "sooraj",
-      "cart": []
+      "blocked": false,
+      "cart": [
+        {
+          "id": "2",
+          "name": "Samsung Galaxy S23",
+          "price": 79999,
+          "image": "https://m.media-amazon.com/images/I/51hqXIAVXAL.jpg",
+          "description": "8GB RAM + 128GB Storage | 6.1-inch Dynamic AMOLED 2X Display | IP68 Water & Dust Resistance | Snapdragon 8 Gen 2 | 50MP Triple Rear Cameras | 3900mAh Battery | 25W Fast Charging",
+          "qty": 1
+        },
+        {
+          "id": "3",
+          "name": "Google Pixel 8",
+          "price": 74999,
+          "image": "https://virtual2web.com/12161-superlarge_default/google-pixel-8-pro-5g-12gb-128gb-blanco-porcelain-dual-sim-ga04798.jpg",
+          "description": "8GB RAM + 128GB Storage | 6.2-inch OLED Display | IP68 Water & Dust Resistance | Google Tensor G3 Chip | 50MP Dual Rear Cameras | 4000mAh Battery | 30W Fast Charging",
+          "qty": 1
+        },
+        {
+          "id": "6",
+          "name": "Oppo Find X5 Pro",
+          "price": 109999,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWHPgnVs9pMK3FvybJS_b-nCYVOVozWn-GouWan7RwF1_UWDjgiFqimh-ECDltJXcFNX0&usqp=CAU",
+          "description": "12GB RAM + 256GB Storage | 6.7-inch AMOLED Display | IP68 Water & Dust Resistance | Snapdragon 8 Gen 1 | 50MP Quad Rear Cameras | 5000mAh Battery | 80W SuperVOOC Charging",
+          "qty": 1
+        }
+      ]
     }
   ],
   "products": [
@@ -181,22 +220,8 @@
       "description": "8GB RAM + 128GB Storage | 5.9-inch AMOLED Display | IP68 Water & Dust Resistance | Snapdragon 8+ Gen 1 | 50MP Dual Rear Cameras | 4300mAh Battery | 30W Fast Charging"
     },
     {
-      "id": "13",
-      "name": "Huawei P50 Pro",
-      "price": 109999,
-      "image": "https://media.wisemarket.ae/variant/inventory_30097.webp",
-      "description": "8GB RAM + 256GB Storage | 6.6-inch OLED Display | IP68 Water & Dust Resistance | Kirin 9000 5G | 50MP Quad Rear Cameras | 4360mAh Battery | 50W Wireless Charging"
-    },
-    {
-      "id": "14",
-      "name": "LG Velvet",
-      "price": 34999,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/LG_Velvet_Aurora_Green_version.jpg",
-      "description": "6GB RAM + 128GB Storage | 6.8-inch OLED Display | IP68 Water & Dust Resistance | Snapdragon 765G | 48MP Triple Rear Cameras | 4300mAh Battery | 18W Fast Charging"
-    },
-    {
       "id": "03f6",
-      "name": "Motorola g45 5G (Viva Magenta, 128 GB)  (8 GB RAM)",
+      "name": "Motorola ",
       "price": "12999",
       "description": "8 GB RAM | 128 GB ROM | Expandable Upto 1 TB\n16.51 cm (6.5 inch) HD+ Display\n50MP + 2MP ",
       "image": "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/9/3/6/-original-imah3xk8u8dgteq3.jpeg?q=70&crop=false"

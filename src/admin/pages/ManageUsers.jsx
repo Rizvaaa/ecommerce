@@ -1,67 +1,64 @@
 import React, { useState, useEffect } from 'react';
-import { getAllUsers, updateUser  } from '../../api/adminApi';
+import { getAllUsers, updateUser } from '../../api/adminApi';
 
 const ManageUsers = () => {
     const [users, setUsers] = useState([]);
-    
+
     useEffect(() => {
         getAllUsers().then((res) => setUsers(res.data));
     }, []);
 
-    const handleonClick = (id,status) => {
-        if (window.confirm(`Are you sure you want to ${status?"unblock":"block"}  this user?`))
-        {
-            updateUser(id,{blocked:!status}).then((res) => {
-                if (res) alert(`User ${status?"unblocked":"blocked"} successfully!`);
-                else alert(`Failed to ${status?"unblock":"block"} user!`);
+    const handleonClick = (id, status) => {
+        if (window.confirm(`Are you sure you want to ${status ? "unblock" : "block"} this user?`)) {
+            updateUser(id, { blocked: !status }).then((res) => {
+                if (res) alert(`User ${status ? "unblocked" : "blocked"} successfully!`);
+                else alert(`Failed to ${status ? "unblock" : "block"} user!`);
                 getAllUsers().then((res) => setUsers(res.data));
             });
         }
-    }
-//
-    return (
-        <div className="container mx-auto ">
-            <header className="bg-white shadow-lg p-4 mb-2">
-                <h1 className="text-2xl font-bold text-gray-800">Manage Users</h1>
-            </header>
-            
-            {/* User Table */}
-            <div className="bg-white p-4 rounded-lg shadow-md">
-                <h2 className="text-xl font-semibold mb-4">User List</h2>
-                <table className="min-w-full table-auto">
-                    <thead>
-                        <tr className="bg-gray-100 border-b">
-                            <th className="px-4 py-2 text-left text-sm font-medium text-gray-600">Name</th>
-                            <th className="px-4 py-2 text-left text-sm font-medium text-gray-600">Email</th>
-                            <th className="px-4 py-2 text-left text-sm font-medium text-gray-600">Role</th>
-                            <th className="px-4 py-2 text-left text-sm font-medium text-gray-600">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {users
-                            .filter(user => user.role !== 'admin') // Exclude admin users
-                            .map(user => (
-                            <tr key={user.id} className="border-b hover:bg-gray-50 transition">
-                                <td className="px-4 py-2 text-sm text-gray-700">{user.name}</td>
-                                <td className="px-4 py-2 text-sm text-gray-700">{user.email}</td>
-                                <td className="px-4 py-2 text-sm text-gray-700">{user.role}</td>
-                                <td className="px-4 py-2 text-sm text-gray-700">
-                                <button
-                                    onClick={() => handleonClick(user.id, user.blocked)}
-                                    className={`py-1 px-3 font-semibold rounded-md transition- ${
-                                        user.blocked
-                                          ? "text-red-600 hover:text-red-700 "
-                                          : "text-blue-700 hover:text-blue-800"
-                                      }`}
-                                >
-                                    {user.blocked ? "Unblock" : "Block"}
-                                </button>
-                                </td>
-                            </tr>
-                            ))}
-                    </tbody>
+    };
 
-                </table>
+    return (
+        <div className="container mx-auto">
+            {/* <header className="bg-gradient-to-r from-orange-500 via-yellow-500 to-blue-500 shadow-lg p-6 rounded-md mb-6">
+                <h1 className="text-2xl font-bold text-white text-center">Manage Users</h1>
+            </header> */}
+
+            {/* User List */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+                {users.filter(user => user.role !== 'admin').map((user) => (
+                    <div
+                        key={user.id}
+                        className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300"
+                    >
+                        <div className="flex items-center space-x-4 mb-4">
+                            <div className="flex-shrink-0">
+                                <img
+                                    src={user.avatar || 'https://via.placeholder.com/150'}
+                                    alt={user.name}
+                                    className="w-16 h-16 rounded-full border-2 border-gray-300 object-cover"
+                                />
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold text-gray-800">{user.name}</h3>
+                                <p className="text-sm text-gray-600">{user.email}</p>
+                            </div>
+                        </div>
+                        <div className="flex justify-between items-center mt-4">
+                            <span className="text-sm font-medium text-gray-500">Role: {user.role}</span>
+                            <button
+                                onClick={() => handleonClick(user.id, user.blocked)}
+                                className={`px-4 py-2 text-sm font-bold rounded-md transition duration-200 ${
+                                  user.blocked
+                                    ? 'bg-red-500 text-white hover:bg-red-600'
+                                    : 'bg-orange-400 text-white hover:bg-orange-400-600'
+                                }`}
+                            >
+                                {user.blocked ? 'Unblock' : 'Block'}
+                            </button>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );
